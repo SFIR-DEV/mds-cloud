@@ -41,8 +41,9 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
         with:
           registry: <aws_account_id>.dkr.ecr.<aws_region>.amazonaws.com
-            - name: Push Docker image to ECR
-              run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/myapp:latest
+
+      - name: Push Docker image to ECR
+        run: docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/myapp:latest
 
       - name: Deploy to ECS
         run: |
